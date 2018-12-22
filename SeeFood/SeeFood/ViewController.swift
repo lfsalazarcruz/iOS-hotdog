@@ -48,11 +48,47 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let results = request.results as? [VNClassificationObservation] else {
                 fatalError("Model failed to process image.")
             }
+            
+//            let dogArray = [
+//                "german sheperd",
+//                "golden retriever",
+//                "chihuahua",
+//                "retriever",
+//                "buldog",
+//                "terrier",
+//                "corgi",
+//                "maltese",
+//                "belgian shepherd",
+//                "dutch shepherd",
+//                "labradoodle",
+//                "labrador retriever",
+//                "siberian husky",
+//                "alaskan malamute",
+//                "rottweiler",
+//                "border collie",
+//                "australian shepherd",
+//                "dog"
+//            ]
+            
+            print(results.first)
             if let firstResult = results.first {
-                if firstResult.identifier.contains("hotdog") {
-                    self.navigationItem.title = "Hotdog!"
-                } else {
-                    self.navigationItem.title = "Not Hotdog!"
+                if firstResult.identifier.contains("German shepherd") {
+                    self.navigationItem.title = "It is a german sheperd!"
+                }
+                else if firstResult.identifier.contains("Golden retriever") {
+                    self.navigationItem.title = "It is a golden retriever!"
+                }
+                else if firstResult.identifier.contains("Chihuahua") {
+                    self.navigationItem.title = "It is a chihuahua!"
+                }
+                else if firstResult.identifier.contains("Border collie") {
+                    self.navigationItem.title = "It is a border collie!"
+                }
+                else if firstResult.identifier.contains("Labrador retriever") {
+                    self.navigationItem.title = "It is a labrador retriever!"
+                }
+                else {
+                    self.navigationItem.title = "It is not a doggy!"
                 }
             }
         }
